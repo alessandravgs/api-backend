@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface ClubeRepository extends JpaRepository<Clube, Integer> {
     public List<Clube> findByNomeOrderByNomeAsc(String nome);
+
+    public List<Clube> findAllByOrderByNomeAsc();
 }

@@ -19,6 +19,7 @@ public class ClubeService {
 
     public Clube salvarClube(Clube clube){return repository.save(clube);}
     public List<Clube> listarClubes(){return repository.findAll();}
+    public List<Clube> listarClubesOrderByNome(){return repository.findAllByOrderByNomeAsc();}
     public void excluirClube(Integer id){ repository.deleteById(id);}
     public Clube consultarByID(Integer id)
     {

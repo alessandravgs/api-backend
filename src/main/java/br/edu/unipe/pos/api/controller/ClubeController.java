@@ -55,6 +55,17 @@ public class ClubeController {
         return ResponseEntity.ok(clubesResponseDTO);
     }
 
+    @GetMapping("/ordenado")
+    @Operation(summary = "Listar clubes ordenados por nome",
+            description = "Lista todos os clubes cadastrados ordenados por nome.")
+    public ResponseEntity<List<ClubeResponseDto>> listarClubesOrdenados() {
+        List<Clube> clubes = clubeService.listarClubesOrderByNome();
+        List<ClubeResponseDto> clubesResponseDTO = clubes.stream()
+                .map(ClubeResponseDto::new)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(clubesResponseDTO);
+    }
+
     @GetMapping("/id/{id}")
     @Operation(summary = "Buscar clube por ID",
             description = "Retorna um clube específico com base no ID fornecido.")
